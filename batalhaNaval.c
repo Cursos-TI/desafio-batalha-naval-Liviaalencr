@@ -17,9 +17,9 @@ int main() {
         
     }
     
-    // Cordenadas dos navios 
-    int linhaHorizontal = 8, colunaHorizontal = 2;
-    int linhaVertical = 5, colunaVertical = 7;
+    // Cordenadas dos navios 1 e 2
+    int linhaHorizontal = 8, colunaHorizontal = 2;      // 8 = linha vertical 2 = linha vertical
+    int linhaVertical = 4, colunaVertical = 1;          // 4 = linha vertical 1 = linha vertical
 
 
     // Posicionamento do navio 1                                   // Navio 1
@@ -37,29 +37,42 @@ int main() {
         }
         
     }
+
+    // Coordenadas dos navios diagonais 3 e 4                   
+    int linhaDiagonal1 = 1, colunaDiagonal1 = 1;
+    int linhaDiagonal2 = 6, colunaDiagonal2 = 8;
+
+    // Posicionamento do navio 3 (diagonal principal)               // Navio 3
+     for (int i = 0; i < 3; i++) {
+        if (Tabuleiro[linhaDiagonal1 + i][colunaDiagonal1 + i] == 0) {
+            Tabuleiro[linhaDiagonal1 + i][colunaDiagonal1 + i] = 3;
+        }
+    }
+
+    // Posicionamento do navio 4 (diagonal secundária)              // Navio 4
+    for (int i = 0; i < 3; i++) {
+        if (Tabuleiro[linhaDiagonal2 - i][colunaDiagonal2 - i] == 0) {
+            Tabuleiro[linhaDiagonal2 - i][colunaDiagonal2 - i] = 3;
+        }
+    }
+
     
     // Preenchimento das letras nas linhas
-    printf(" ");                                // espaço para alinhar 
-    for (int j = 0; j < 10; j++)
-    {
-        printf("%2d ", j);                     // 0 á 9 "%2d" mantém alinhado
+    // Exibição do tabuleiro
+    printf("  ");                       // Espaço para alinhamento
+    for (int j = 0; j < 10; j++) {
+        printf("%2d ", j);
     }
-    
     printf("\n");
 
-    for (int i = 0; i < 10; i++)
-    {
-        printf("%c ", linha[i]);              // irá imprimir A, B, C...
-        for (int j = 0; j < 10; j++)
-        {
-            printf("%d  ", Tabuleiro[i][j]);  // zeros
+    for (int i = 0; i < 10; i++) {
+        printf("%c ", linha[i]);        // Letras A-J para referência
+        for (int j = 0; j < 10; j++) {
+            printf("%d  ", Tabuleiro[i][j]);
         }
-        
         printf("\n");
     }
-    
-
-
 
     return 0;
+    
 }
